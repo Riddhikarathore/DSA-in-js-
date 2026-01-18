@@ -40,20 +40,36 @@
 //input =["riddhika","riddhi","riddhu"]
 //output = ["riddh"]
 
-var longestCommonPrefix = function(strs) {
-    if(strs.length === 0) return ""
-    let prefix = strs[0];
-    for(let i = 1; i<strs.length;i++){
-        while(strs[i].indexOf(prefix)!==0){
-            prefix=prefix.slice(0,-1);
-            if(prefix == "") return "";
+// var longestCommonPrefix = function(strs) {
+//     if(strs.length === 0) return ""
+//     let prefix = strs[0];
+//     for(let i = 1; i<strs.length;i++){
+//         while(strs[i].indexOf(prefix)!==0){
+//             prefix=prefix.slice(0,-1);
+//             if(prefix == "") return "";
+//         }
+//     }
+//     return prefix;
+// };
+
+// var a = longestCommonPrefix(["riddhika","riddhi","riddhu"])
+
+//     console.log(a);
+
+
+//remove duplicates from array 
+//question number 26
+var removeDuplicates = function(nums) {
+     if (nums.length === 0) return 0;
+
+    let i = 0;
+
+    for (let j = 1; j < nums.length; j++) {
+        if (nums[j] !== nums[i]) {
+            i++;
+            nums[i] = nums[j];
         }
     }
-    return prefix;
+
+    return i + 1;  
 };
-
-var a = longestCommonPrefix(["riddhika","riddhi","riddhu"])
-
-    console.log(a);
-
-
