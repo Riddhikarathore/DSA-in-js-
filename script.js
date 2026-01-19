@@ -59,6 +59,8 @@
 
 //remove duplicates from array 
 //question number 26
+
+
 var removeDuplicates = function(nums) {
      if (nums.length === 0) return 0;
 
@@ -88,3 +90,31 @@ var removeElement = function(nums, val) {
 
     return k;
 };
+
+
+//search insert position 
+
+var searchInsert = function(nums, target) {
+
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            return mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    // left is the insert position
+    return left;
+    
+};
+
+
+
