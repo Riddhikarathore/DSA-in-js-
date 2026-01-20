@@ -205,3 +205,21 @@ var generate = function(numRows) {
 
     return result;
 };
+
+
+//pascal triangle 2
+
+var getRow = function(rowIndex) {
+    let row = new Array(rowIndex + 1).fill(0);
+    row[0] = 1;
+
+    for (let i = 1; i <= rowIndex; i++) {
+        // right se update karna important hai
+        for (let j = i; j > 0; j--) {
+            row[j] = row[j] + row[j - 1];
+        }
+    }
+
+    return row;
+};
+
