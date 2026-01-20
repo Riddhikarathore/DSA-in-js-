@@ -14,47 +14,47 @@
 
 // arrays
 
-//leetcode problems
+// leetcode problems
 
 // two sum question -1
 
-//input = [2,3,4,5,6]-- nums
-//output =[11]-- target
-//5+6=11
+// input = [2,3,4,5,6]-- nums
+// output =[11]-- target
+// 5+6=11
 
-// var twosum = function(nums,target){
-//     for(let i = 0;i<nums.length;i++){
-//         for(let j = i +1;j<nums.length;j++){
-//             if(nums[i]+nums[j]==target){
-//                 return [nums[i],nums[j]]
-//             }
-//         }
-//     }
-// }
-//  var a = twosum([2,3,4,5,6],11)
-//  console.log(a)
+var twosum = function(nums,target){
+    for(let i = 0;i<nums.length;i++){
+        for(let j = i +1;j<nums.length;j++){
+            if(nums[i]+nums[j]==target){
+                return [nums[i],nums[j]]
+            }
+        }
+    }
+}
+ var a = twosum([2,3,4,5,6],11)
+ console.log(a)
 
-//longest common prefix 
-//problem number 14 in leetcode
+// longest common prefix 
+// problem number 14 in leetcode
 
-//input =["riddhika","riddhi","riddhu"]
-//output = ["riddh"]
+input =["riddhika","riddhi","riddhu"]
+output = ["riddh"]
 
-// var longestCommonPrefix = function(strs) {
-//     if(strs.length === 0) return ""
-//     let prefix = strs[0];
-//     for(let i = 1; i<strs.length;i++){
-//         while(strs[i].indexOf(prefix)!==0){
-//             prefix=prefix.slice(0,-1);
-//             if(prefix == "") return "";
-//         }
-//     }
-//     return prefix;
-// };
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 0) return ""
+    let prefix = strs[0];
+    for(let i = 1; i<strs.length;i++){
+        while(strs[i].indexOf(prefix)!==0){
+            prefix=prefix.slice(0,-1);
+            if(prefix == "") return "";
+        }
+    }
+    return prefix;
+};
 
-// var a = longestCommonPrefix(["riddhika","riddhi","riddhu"])
+var a = longestCommonPrefix(["riddhika","riddhi","riddhu"])
 
-//     console.log(a);
+    console.log(a);
 
 
 //remove duplicates from array 
@@ -162,4 +162,23 @@ var merge = function(nums1, m, nums2, n) {
     }
 
 
+}
+
+//convert the sorted array to binary search tree
+
+var sortedArrayToBST = function(nums) {
+    function helper(l, r) {
+        if (l > r) return null;
+
+        let mid = Math.floor((l + r) / 2);
+
+        let root = new TreeNode(nums[mid]);
+        root.left = helper(l, mid - 1);
+        root.right = helper(mid + 1, r);
+
+        return root;
+    }
+
+    return helper(0, nums.length - 1);
+};
 
