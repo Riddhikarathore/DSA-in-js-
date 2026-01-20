@@ -223,3 +223,20 @@ var getRow = function(rowIndex) {
     return row;
 };
 
+
+//best time to buy or sell stocks
+
+var maxProfit = function(prices) {
+    let minPrice = Infinity;
+    let maxProfit = 0;
+
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];   // best buy price so far
+        } else {
+            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+        }
+    }
+
+    return maxProfit;
+};
